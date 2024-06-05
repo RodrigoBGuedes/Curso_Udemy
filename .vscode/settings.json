@@ -1,11 +1,11 @@
 {
-  "window.zoomLevel": 3,
+  "window.zoomLevel": 2,
   "editor.fontSize": 24,
   "python.languageServer": "Pylance", // ms-python.vscode-pylance
   "python.testing.unittestEnabled": false, // ms-python.python
   "python.testing.pytestEnabled": true,
   "python.testing.pytestArgs": [
-    "recipes"
+    "__pycache__"
   ], // -x to bail
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
@@ -14,7 +14,7 @@
     "--errors-only"
   ],
   "python.formatting.autopep8Args": ["--indent-size=4"],
-  "python.defaultInterpreterPath": "venv/bin/python",
+  "python.defaultInterpreterPath": "venv/scripts/python",
   "[python]": {
     "editor.defaultFormatter": "ms-python.python", // ms-python.python
     "editor.tabSize": 4,
@@ -59,5 +59,7 @@
     "django-html": "html", // batisteo.vscode-django
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
-  }
+  },
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true
 }
