@@ -19,7 +19,7 @@ class RecipeModelTest(RecipeTestBase):
             author=self.make_author(username='newuser'),
             title='Recipe Title',
             description='recipe Description',
-            slug='recipe-slug',
+            slug='recipe-slug-for_no_defaults',
             preparation_time=10 ,
             preparation_time_unit='Minutos',
             servings=5,
