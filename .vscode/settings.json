@@ -1,12 +1,10 @@
 {
-  "window.zoomLevel": 2,
-  "editor.fontSize": 24,
+  "window.zoomLevel": 1,
+  "editor.fontSize": 16,
   "python.languageServer": "Pylance", // ms-python.vscode-pylance
   "python.testing.unittestEnabled": false, // ms-python.python
   "python.testing.pytestEnabled": true,
-  "python.testing.pytestArgs": [
-    "recipes"
-  ], // -x to bail
+  "python.testing.pytestArgs": [], // -x to bail
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
   "python.linting.pylintArgs": [
@@ -14,8 +12,9 @@
     "--errors-only"
   ],
   "python.formatting.autopep8Args": ["--indent-size=4"],
+  "python.defaultInterpreterPath": ".venv/Scripts/activate",
   "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff", // ms-python.python
+    "editor.defaultFormatter": "ms-python.python", // ms-python.python
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.formatOnSave": true,
@@ -59,6 +58,22 @@
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
-  "python.analysis.typeCheckingMode": "basic",
-  "python.analysis.autoImportCompletions": true
+  "html.format.indentHandlebars": true,
+  "html.format.indentInnerHtml": true,
+  "html.format.templating": true,
+  "html-css-class-completion.HTMLLanguages": [
+    
+    "html",
+    "vue",
+    "razor",
+    "blade",
+    "handlebars",
+    "twig",
+    "django-html",
+    "php",
+    "markdown",
+    "erb",
+    "ejs",
+    "svelte"
+  ]
 }
