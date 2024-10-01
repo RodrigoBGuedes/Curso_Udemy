@@ -1,8 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from utils.django_forms import add_placeholder, strong_password
 
-from utils.django_forms import add_attr, add_placeholder, strong_password
 
 class RegisterForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -13,28 +13,27 @@ class RegisterForm(forms.ModelForm):
         add_placeholder(self.fields['last_name'], 'Ex.: Doe')
         add_placeholder(self.fields['password'], 'Type your password')
         add_placeholder(self.fields['password2'], 'Repeat your password')
-        add_attr(self.fields['username'], 'css', 'a-css-class')
 
     username = forms.CharField(
-        label="Username",
+        label='Username',
         help_text=(
             'Username must have letters, numbers or one of those @.+-_. '
-            'the length should be between 4 and 150 characters.'
+            'The length should be between 4 and 150 characters.'
         ),
         error_messages={
             'required': 'This field must not be empty',
             'min_length': 'Username must have at least 4 characters',
-            'max_length': 'Username must have at less than 150 characters',
-            },
+            'max_length': 'Username must have less than 150 characters',
+        },
         min_length=4, max_length=150,
     )
     first_name = forms.CharField(
         error_messages={'required': 'Write your first name'},
-        label='First name',
+        label='First name'
     )
     last_name = forms.CharField(
         error_messages={'required': 'Write your last name'},
-        label='Last name',
+        label='Last name'
     )
     email = forms.EmailField(
         error_messages={'required': 'E-mail is required'},
@@ -56,8 +55,10 @@ class RegisterForm(forms.ModelForm):
     )
     password2 = forms.CharField(
         widget=forms.PasswordInput(),
-        label="Password2",
-        error_messages={'required': 'Please repeat your password'}
+        label='Password2',
+        error_messages={
+            'required': 'Please, repeat your password'
+        },
     )
 
     class Meta:
@@ -73,10 +74,12 @@ class RegisterForm(forms.ModelForm):
     def clean_email(self):
         email = self.cleaned_data.get('email', '')
         exists = User.objects.filter(email=email).exists()
-        
+
         if exists:
-            raise ValidationError("User e-mail is already in use", code='invalid')
-        
+            raise ValidationError(
+                'User e-mail is already in use', code='invalid',
+            )
+
         return email
 
     def clean(self):
