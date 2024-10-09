@@ -414,6 +414,11 @@ h6 {
   margin: var(--spacing-gutter-medium) 0;
 }
 
+/* Authors */
+.login-message {
+  margin: 1rem 0;
+}
+
 @media (max-width: 600px) {
   .main-content-list,
   .form-content-grid {
