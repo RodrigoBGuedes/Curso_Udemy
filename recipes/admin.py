@@ -9,11 +9,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
-    ...
-
-
-@admin.register(Recipe)
-class RecipeAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'created_at', 'is_published', 'author']
     list_display_links = 'title', 'created_at',
     search_fields = 'id', 'title', 'description', 'slug', 'preparation_steps',
