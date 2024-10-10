@@ -114,7 +114,7 @@ def dashboard_recipe_edit(request, id):
     )
     return render(
         request,
-        'authors/pages/dashboard_recipe.html',
+        'authors/pages/dashboard_recipes.html',
         context={
             'form': form
         }
