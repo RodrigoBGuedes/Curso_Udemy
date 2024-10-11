@@ -1,5 +1,4 @@
 import os
-from typing import List
 
 from django.db.models import Q
 from django.http.response import Http404
@@ -34,6 +33,25 @@ class RecipeListViewBase(ListView):
             {'recipes': page_obj, 'pagination_range': pagination_range}
         )
         return ctx
+    
+class RecipeListViewHome(RecipeListViewBase):
+    template_name = 'recipes/pages/home.html'
+
+
+class RecipeListViewCategory(RecipeListViewBase):
+    template_name = 'recipes/pages/category.html'
+    def get_queryset(self, *args, **kwargs):
+        qs = super().get_queryset(*args, **kwargs)
+        qs = qs.filter(
+            category__id=self.kwargs.get('category_id'),
+        )
+        return qs
+
+
+class RecipeListViewSearch(RecipeListViewBase):
+    template_name = 'recipes/pages/search.html'
+
+
 def home(request):
     recipes = Recipe.objects.filter(
         is_published=True,
